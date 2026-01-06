@@ -9,17 +9,10 @@ public class ArrayOperations {
         if (pos < 0 || pos >= values.length) {
             return;
         }
-        int len = values.length;
-        int[] arr = new int[len];
-        for (int i = 0, j = 0; i < len; i++, j++) {
-            if (i == pos) {
-                i++;
-            }
-            arr[j] = values[i];
+        for (int i = pos; i < values.length - 1; i++) {
+            values[i] = values[i + 1];
         }
-        arr[len - 1] = 0;
-        values = arr;
-        return;
+        values[values.length - 1] = 0;
     }
 
     /**
@@ -31,7 +24,10 @@ public class ArrayOperations {
         if (pos < 0 || pos >= values.length) {
             return;
         }
-        
+        for (int i = values.length - 1; i > pos; i--) {
+            values[i] = values[i-1];
+        }
+        values[pos] = newInt;
     }
 
     /** 
@@ -39,8 +35,15 @@ public class ArrayOperations {
      *  the elements of B. 
      */
     public static int[] catenate(int[] A, int[] B) {
-        // TODO: fill out this function
-        return null;
+        int[] new_arr = new int[A.length + B.length];
+        for (int i = 0; i < A.length; i++) {
+            new_arr[i] = A[i];
+        }
+        int len_A = A.length;
+        for (int i = 0; i < B.length; i++) {
+            new_arr[len_A + i] = B[i];
+        }
+        return new_arr;
     }
 
 }
