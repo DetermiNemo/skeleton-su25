@@ -9,7 +9,17 @@ public class ArrayOperations {
         if (pos < 0 || pos >= values.length) {
             return;
         }
-        // TODO: fill out this function
+        int len = values.length;
+        int[] arr = new int[len];
+        for (int i = 0, j = 0; i < len; i++, j++) {
+            if (i == pos) {
+                i++;
+            }
+            arr[j] = values[i];
+        }
+        arr[len - 1] = 0;
+        values = arr;
+        return;
     }
 
     /**
@@ -21,7 +31,7 @@ public class ArrayOperations {
         if (pos < 0 || pos >= values.length) {
             return;
         }
-        // TODO: fill out this function
+        
     }
 
     /** 
