@@ -1,3 +1,4 @@
+import edu.princeton.cs.algs4.In;
 import org.junit.Test;
 import static com.google.common.truth.Truth.assertWithMessage;
 
@@ -156,12 +157,20 @@ public class IntListTest {
         assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of(4, 5, 6))).isEqualTo(IntList.of(1, 2, 3, 4, 5, 6));
         assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of())).isEqualTo(IntList.of(1, 2, 3));
         assertWithMessage("Wrong").that(IntList.catenate(IntList.of(), IntList.of(4, 5, 6))).isEqualTo(IntList.of(4, 5, 6));
+        IntList A = IntList.of(1, 2, 3);
+        IntList B = IntList.of(4, 5, 6);
+        IntList.catenate(A, B);
+        assertWithMessage("Wrong").that(A).isEqualTo(IntList.of(1, 2, 3));
     }
 
     @Test
     public void testDCatenate() {
-        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of(4, 5, 6))).isEqualTo(IntList.of(1, 2, 3, 4, 5, 6));
-        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of())).isEqualTo(IntList.of(1, 2, 3));
-        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(), IntList.of(4, 5, 6))).isEqualTo(IntList.of(4, 5, 6));
+        assertWithMessage("Wrong").that(IntList.dcatenate(IntList.of(1, 2, 3), IntList.of(4, 5, 6))).isEqualTo(IntList.of(1, 2, 3, 4, 5, 6));
+        assertWithMessage("Wrong").that(IntList.dcatenate(IntList.of(1, 2, 3), IntList.of())).isEqualTo(IntList.of(1, 2, 3));
+        assertWithMessage("Wrong").that(IntList.dcatenate(IntList.of(), IntList.of(4, 5, 6))).isEqualTo(IntList.of(4, 5, 6));
+        IntList A = IntList.of(1, 2, 3);
+        IntList B = IntList.of(4, 5, 6);
+        IntList.dcatenate(A, B);
+        assertWithMessage("Wrong").that(A).isEqualTo(IntList.of(1, 2, 3, 4, 5, 6));
     }
 }
