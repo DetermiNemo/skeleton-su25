@@ -1,3 +1,5 @@
+
+
 /** A data structure to represent a Linked List of Integers.
  * Each IntList represents one node in the overall Linked List.
  */
@@ -47,8 +49,18 @@ public class IntList {
      * @return The element at [position]
      */
     public int get(int position) {
-        // TODO: YOUR CODE HERE
-        return -1;
+        if (position < 0) {
+            throw new IllegalArgumentException("Position should not be negative");
+        }
+        IntList last = this;
+        while (position > 0) {
+            position -= 1;
+            last = last.next;
+            if (last == null) {
+                throw new IllegalArgumentException("Index out of range");
+            }
+        }
+        return last.item;
     }
 
     /**
@@ -58,8 +70,16 @@ public class IntList {
      * @return The String representation of the list.
      */
     public String toString() {
-        // TODO: YOUR CODE HERE
-        return null;
+        StringBuilder str = new StringBuilder();
+        IntList p = this;
+        while (p != null) {
+            str.append(p.item);
+            if (p.next != null) {
+                str.append(' ');
+            }
+            p = p.next;
+        }
+        return str.toString();
     }
 
     /**
@@ -80,11 +100,19 @@ public class IntList {
         if (obj == null) {
             return false;
         }
-        if (obj instanceof IntList otherList) {
-            // TODO: your code here
-
+        if (!(obj instanceof IntList otherList)) {
+            return false;
         }
-        return false;
+        IntList p_this = this;
+        IntList p_other = otherList;
+        while (p_this != null && p_other != null) {
+            if (p_this.item != p_other.item) {
+                return false;
+            }
+            p_this = p_this.next;
+            p_other = p_other.next;
+        }
+        return p_this == p_other;
     }
 
     /**
@@ -93,7 +121,12 @@ public class IntList {
      * @param value, the int to be added.
      */
     public void add(int value) {
-        // TODO: YOUR CODE HERE
+        IntList num = new IntList(value);
+        IntList p = this;
+        while (p.next != null) {
+            p = p.next;
+        }
+        p.next = num;
     }
 
     /**
@@ -102,8 +135,13 @@ public class IntList {
      * @return smallest element in the list
      */
     public int smallest() {
-        // TODO: YOUR CODE HERE
-        return -1;
+        int result = this.item;
+        IntList p = this;
+        while (p != null) {
+            result = Math.min(p.item, result);
+            p = p.next;
+        }
+        return result;
     }
 
     /**
@@ -112,8 +150,13 @@ public class IntList {
      * @return The sum of squares of all elements.
      */
     public int squaredSum() {
-        // TODO: YOUR CODE HERE
-        return -1;
+        int result = 0;
+        IntList p = this;
+        while (p != null) {
+            result += Math.pow(p.item, 2);
+            p = p.next;
+        }
+        return result;
     }
 
     /**
