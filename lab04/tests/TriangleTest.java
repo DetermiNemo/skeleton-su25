@@ -1,7 +1,5 @@
 import org.junit.Rule;
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 public abstract class TriangleTest {
 
@@ -15,7 +13,6 @@ public abstract class TriangleTest {
 
     @Test
     public void sidesFormTest() {
-        // TODO: stub for first test
         Triangle t = getNewTriangle();
         assertThat(t.sidesFormTriangle(2, 2, 3)).isTrue();
         assertThat(t.sidesFormTriangle(1, 2, 3)).isFalse();
