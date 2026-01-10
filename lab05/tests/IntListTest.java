@@ -153,11 +153,15 @@ public class IntListTest {
 
     @Test
     public void testCatenate() {
-        // TODO: Add tests
+        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of(4, 5, 6))).isEqualTo(IntList.of(1, 2, 3, 4, 5, 6));
+        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of())).isEqualTo(IntList.of(1, 2, 3));
+        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(), IntList.of(4, 5, 6))).isEqualTo(IntList.of(4, 5, 6));
     }
 
     @Test
     public void testDCatenate() {
-        // TODO: Add test
+        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of(4, 5, 6))).isEqualTo(IntList.of(1, 2, 3, 4, 5, 6));
+        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(1, 2, 3), IntList.of())).isEqualTo(IntList.of(1, 2, 3));
+        assertWithMessage("Wrong").that(IntList.catenate(IntList.of(), IntList.of(4, 5, 6))).isEqualTo(IntList.of(4, 5, 6));
     }
 }
