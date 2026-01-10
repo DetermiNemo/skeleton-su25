@@ -21,13 +21,14 @@ public abstract class TriangleTest {
         assertThat(t.sidesFormTriangle(1, 2, 3)).isFalse();
         assertThat(t.sidesFormTriangle(-1, 2, 3)).isFalse();
         assertThat(t.sidesFormTriangle(0, 2, 3)).isFalse();
-        assertThat(t.sidesFormTriangle(100000, 2, 3)).isFalse();
-        assertThat(t.sidesFormTriangle(1, 2000000, 3)).isFalse();
-        assertThat(t.sidesFormTriangle(1, 2, 300000000)).isFalse();
+        assertThat(t.sidesFormTriangle(1000, 2, 3)).isFalse();
+        assertThat(t.sidesFormTriangle(1, 2000, 3)).isFalse();
+        assertThat(t.sidesFormTriangle(1, 2, 3000)).isFalse();
         // remember that you'll have to call on Triangle methods like
         // t.functionName(arguments), where t is a Triangle object
     }
 
+    @Test
     public void pointsFormTest() {
         Triangle t = getNewTriangle();
         assertThat(t.pointsFormTriangle(0, 0, 3, 0, 0, 4)).isTrue();
@@ -35,6 +36,7 @@ public abstract class TriangleTest {
         assertThat(t.pointsFormTriangle(2, 3, 2, 9, 2, 4)).isFalse();
     }
 
+    @Test
     public void triangleTypeTest() {
         Triangle t = getNewTriangle();
         assertThat(t.triangleType(1, 1, 1)).isEqualTo("Equilateral");
@@ -42,6 +44,7 @@ public abstract class TriangleTest {
         assertThat(t.triangleType(2, 4, 3)).isEqualTo("Scalene");
     }
 
+    @Test
     public void squaredHypotenuseTest() {
         Triangle t = getNewTriangle();
         assertThat(t.squaredHypotenuse(3, 4)).isEqualTo(25);
