@@ -43,7 +43,7 @@ public class GameLogic {
      */
     public static void tiltColumn(int[][] board, int c) {
         int minR = 0;
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < board.length; i++) {
             if (board[i][c] == 0) {
                 continue;
             } else {
@@ -59,7 +59,7 @@ public class GameLogic {
      * @param board     the current state of the board.
      */
     public static void tiltUp(int[][] board) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < board.length; i++) {
             tiltColumn(board, i);
         }
         return;
