@@ -130,5 +130,16 @@ public class SLList {
 
     /** Destructively reverses this list. */
     public void reverse() {
+        sentinel.next = reversehelper(sentinel.next);
+    }
+
+    public IntListNode reversehelper(IntListNode node) {
+        if (node.next == sentinel) {
+            return node;
+        }
+        IntListNode temp = reversehelper(node.next);
+        node.next.next = node;
+        node.next = sentinel;
+        return temp;
     }
 }
