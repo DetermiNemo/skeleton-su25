@@ -114,11 +114,27 @@ public class SLList {
 
     /** Adds x to the list at the specified index. */
     public void add(int index, int x) {
-        // TODO: YOUR CODE HERE
+        if (index < 0) {
+            return;
+        }
+        IntListNode p = sentinel;
+        index = Math.min(index, size);
+        for (int i = 0; i < index; i++) {
+            p = p.next;
+        }
+        p.next = new IntListNode(x, p.next);
+        size++;
+        return;
     }
 
     /** Destructively reverses this list. */
     public void reverse() {
-        // TODO: YOUR CODE HERE
+        IntListNode p = sentinel.next;
+        SLList res = new SLList();
+        while (p.next != sentinel) {
+            res.addFirst(p.item);
+            p = p.next;
+        }
+        this = res;
     }
 }
