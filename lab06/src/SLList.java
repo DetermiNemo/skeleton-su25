@@ -1,3 +1,4 @@
+
 /**
  * An SLList is a list of integers, which encapsulates the
  * naked linked list structure.
@@ -129,12 +130,5 @@ public class SLList {
 
     /** Destructively reverses this list. */
     public void reverse() {
-        IntListNode p = sentinel.next;
-        SLList res = new SLList();
-        while (p.next != sentinel) {
-            res.addFirst(p.item);
-            p = p.next;
-        }
-        this = res;
     }
 }

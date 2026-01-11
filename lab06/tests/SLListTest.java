@@ -32,9 +32,8 @@ public class SLListTest {
         test1.reverse();
         test2.reverse();
         test3.reverse();
-        assertWithMessage("normal failed").that(test1).isEqualTo(SLList.of(5, 4, 3, 2, 1));
-        assertWithMessage("1 failed").that(test2).isEqualTo(SLList.of(5, 4, 3, 2, 1));
-        assertWithMessage("normal failed").that(test2).isEqualTo(SLList.of(1));
-        assertWithMessage("normal failed").that(test3).isEqualTo(SLList.of());
+        assertWithMessage("failed to reverse a normal SSList").that(test1).isEqualTo(SLList.of(5, 4, 3, 2, 1));
+        assertWithMessage("failed to reverse a SLList that contains only 1 element").that(test2).isEqualTo(SLList.of(1));
+        assertWithMessage("failed to reverse an empty SLList").that(test3).isEqualTo(SLList.of());
     }
 }
